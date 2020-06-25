@@ -1,113 +1,94 @@
-.menu {
-     text-align: left;
-     }
- .menu__links {
- 	width: 300px;
-  }
-
- .menu__links-item {
-         display: inline-block;
-         border-left: 10px solid grey;
-         border-bottom: 1px solid grey;
-         background: beige;
-         color: blue;
-         font-family: sans-serif;
-         font-size: 30px;
-         padding: 0 10px;
-         text-decoration: none;
-         }
-
- .menu__links-item:hover {
- 	    text-decoration: underline;
-     }
-
- .menu__icon {
-  	   display: none;
-  	   height: 35px;
-  	   width: 45px;
-  	   position: relative;
-  	   cursor: pointer;
-     }
- .menu__icon span {
-  	   display: block;
-  	   position: absolute;
-  	   height: 9px;
-  	   width: 100%;
-  	   background: orange;
-  	   border-radius: 9px;
-  	   opacity: 1;
-  	   left: 0;
-  	   transform: rotate(0deg);
-  	   transition: 0.25s ease-in-out;
-        }
- .menu__icon span:nth-child(1) {
-  	top: 0px;
-        }
- .menu__icon span:nth-child(2), .menu_icon span:nth-child(3) {
-  	top: 13px;
-       }
- .menu__icon span:nth-child(4) {
- 	top: 26px;
-       }
-
- @media screen and (max-width: 760px) {
- 	.menu__icon{
- 		display: inline-block;
- 	}
-     .menu__links {
- 	    position: fixed;
- 	    display: none;
- 	    top: 0;
- 	    right: 0;
- 	    left: 0;
- 	    background-color: orange;
- 	    z-index: 1000;
- 	    overflow: auto;
- 	}
-     .menu__links-item {
- 	     display: block;
- 	     padding: 10px 0;
- 	     text-align: center;
-     }
-     }
-
- @media (min-width: 320px) {
- 	.wrap_title {
- 		font-size: 15px;
- 	}
+* {
+ 	margin: 0;
+ 	padding: 0;
+ 	box-sizing: border-box;
  }
 
- @media (min-width:360px) {
- 	.wrap_title {
- 		font-size: 35px;
- 		color: red;
- 	}
+ .wrapper {
+ 	margin: 30px auto;
+ 	width: 480px;
+ 	background-color: pink;
+ 	position: relative;
+ 	color: black;
+ 	text-align: center;
+ 	height: 40px;
+ 	font-family: sans-serif;
  }
 
- @media (min-width:375px) {
- 	.wrap_title {
- 		font-size: 55px;
- 		color: green;
- 	}
+ #check-menu {
+ 	display: none;
  }
 
- @media (min-width: 411px) {
- 	.wrap_title {
- 		font-size: 65px;
- 		color: blue;
- 	}
+ label {
+ 	display: block;
+ 	position: absolute;
+ 	top: 0;
+ 	left: 0;
+ 	width: 100%;
+ 	height: 100%;
+ 	cursor: pointer;
+ 	z-index: 2;
+ 	line-height: 40px;
  }
 
- @media (min-width: 768px) {
- 	.wrap_title {
- 		font-size: 100px;
- 		color: orange;
- 	}
+ .burger-line {
+ 	position: absolute;
+ 	top: 8px;
+ 	right: 10px;
+ 	width: 35px;
+ 	height: 2px;
+ 	background-color: black;
+ 	transition: 0.5s all;
  }
 
- @media (min-width: 1024px) {
- 	.wrap_title {
- 		font-size: 60px;
- 		color: red;
- 	}
+ .second, .third {
+ 	top: 18px;
+ }
+
+ .fourth {
+ 	top: 28px;
+ }
+
+ .main-menu {
+ 	display: block;
+ 	position: absolute;
+ 	width: 100%;
+ 	bottom: 0;
+ 	left: 0;
+ 	transform: translateY(100%);
+ 	max-height: 0;
+ 	font-size: 0;
+ 	overflow: hidden;
+ 	transition: 0.5s all;
+ }
+
+ a {
+ 	display: block;
+ 	width: 100%;
+ 	padding: 10px;
+ 	color: white;
+ 	text-decoration: none;
+ 	border-top: 1px solid rgba(255, 255, 255, 0.3);
+ 	background-color: teal;
+ }
+
+ #check-menu:checked ~ .main-menu {
+ 	max-height: 500px;
+ 	font-size: 15px;
+ }
+
+ #check-menu:checked ~ .first {
+ 	display: none;
+ }
+
+ #check-menu:checked ~ .second {
+ 	transform: rotate(45deg);
+ }
+
+ #check-menu:checked ~ .third {
+ 	transform: rotate(-45deg);
+ }
+
+ #check-menu:checked ~ .fourth {
+ 	display: none;
  }
